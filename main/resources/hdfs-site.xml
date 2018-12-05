@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<property>
+		<name>dfs.nameservices</name>
+		<value>nameservice2</value>
+	</property>
+	<property>
+		<name>dfs.ha.namenodes.nameservice2</name>
+		<value>hadoop-bd1,hadoop-bd2</value>
+	</property>
+	<property>
+		<name>dfs.namenode.rpc-address.nameservice2.hadoop-bd1</name>
+		<value>hadoop-bd1:8020</value>
+	</property>
+	<property>
+		<name>dfs.namenode.rpc-address.nameservice2.hadoop-bd2</name>
+		<value>hadoop-bd2:8020</value>
+	</property>
+	<property>
+		<name>dfs.namenode.http-address.nameservice2.hadoop-bd1</name>
+		<value>hadoop-bd1:50070</value>
+		<description>指定NameNode的Web Server位置</description>
+	</property>
+	<!--namenode2 http address -->
+	<property>
+		<name>dfs.namenode.http-address.nameservice2.hadoop-bd2</name>
+		<value>hadoop-bd2:50070</value>
+	</property>
+	<property>
+		<name>dfs.namenode.shared.edits.dir</name>
+		<value>qjournal://hadoop-bd1:8485;hadoop-bd2:8485;hadoop-bd3:8485/nameservice2</value>
+	</property>
+	<property>
+		<name>dfs.client.failover.proxy.provider.nameservice2</name>
+		<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+</configuration>
