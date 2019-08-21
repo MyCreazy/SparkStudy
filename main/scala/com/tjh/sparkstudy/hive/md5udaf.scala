@@ -25,6 +25,7 @@ object md5udaf {
 
   def main(args: Array[String]): Unit = {
     val spark=SparkSession.builder().master("local[1]").appName("UDAFTest").getOrCreate()
+    println("1")
     spark.udf.register("mymd5",md5logic(_:String))
     /*spark.udf.register("mymd5",(x:String)=>{
       import org.apache.commons.codec.digest.DigestUtils

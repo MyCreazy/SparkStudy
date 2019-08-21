@@ -2,7 +2,6 @@ package com.tjh.sparkstudy.clean
 
 import java.util.Calendar
 
-import org.apache.flink.table.api.scala.row
 import java.util.Calendar
 
 import com.tjh.sparkstudy.hbase.HbaseOpt
