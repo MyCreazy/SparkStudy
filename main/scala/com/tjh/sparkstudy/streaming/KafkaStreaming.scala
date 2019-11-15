@@ -20,7 +20,7 @@ object KafkaStreaming {
 
     //max.poll.records表示多少条就处理一次
     val kafkaParams = Map(
-      "bootstrap.servers"->"127.0.0.1:9092",
+      "bootstrap.servers"->"10.1.0.4:9092",
       "group.id" -> "test",
       "auto.offset.reset" -> "earliest",
       "max.poll.records"->"2",
@@ -30,7 +30,7 @@ object KafkaStreaming {
 
     //val topics = Set("test")
     val kafkaTopicDS = KafkaUtils.createDirectStream(ssc, LocationStrategies.PreferConsistent,
-      ConsumerStrategies.Subscribe[String, String](Set("test"), kafkaParams))
+      ConsumerStrategies.Subscribe[String, String](Set("hubble_compute_data"), kafkaParams))
 
     print("直接读取完成")
     kafkaTopicDS.map(_.value)
